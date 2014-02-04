@@ -30,10 +30,10 @@ func RemoveSlash(name string) string {
 	return strings.Replace(name, "/", "", -1)
 }
 
-func CleanImageImage(name string) string {
+func CleanImageName(name string) string {
 	parts := strings.SplitN(name, "/", 2)
 	if len(parts) == 1 {
 		return RemoveSlash(RemoveTag(name))
 	}
-	return CleanImageImage(parts[1])
+	return CleanImageName(parts[1])
 }
